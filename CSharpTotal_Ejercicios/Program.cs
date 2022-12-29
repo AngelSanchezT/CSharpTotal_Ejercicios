@@ -6,14 +6,9 @@ namespace CSharpTotal_Ejercicios
     {
         static void Main(string[] args)
         {
-            string nombre;
-            Console.WriteLine("Por favor, ingresa tu nombre y Presiona Enter");
-            nombre = Console.ReadLine();
-
-            Console.WriteLine(nombre.ToUpper());
-            Console.WriteLine(nombre.ToLower());
-            Console.WriteLine(nombre.Trim());
-            Console.WriteLine(nombre.Substring(2));
+            Desafio1.Principal();
+            Desafio2.Desafio2_1();
+            Desafio2.Desafio2_2();
 
         }
     }
