@@ -6,7 +6,15 @@ namespace CSharpTotal_Ejercicios
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            string nombre;
+            Console.WriteLine("Por favor, ingresa tu nombre y Presiona Enter");
+            nombre = Console.ReadLine();
+
+            Console.WriteLine(nombre.ToUpper());
+            Console.WriteLine(nombre.ToLower());
+            Console.WriteLine(nombre.Trim());
+            Console.WriteLine(nombre.Substring(2));
+
         }
     }
 }
