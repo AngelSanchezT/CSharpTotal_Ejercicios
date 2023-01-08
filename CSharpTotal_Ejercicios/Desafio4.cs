@@ -32,7 +32,6 @@ namespace CSharpTotal_Ejercicios
 
             SaludarAmigos(amigo1, amigo2, amigo3);
 
-
             Console.Read();
         }
 
