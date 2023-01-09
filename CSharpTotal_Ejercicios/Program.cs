@@ -4,6 +4,9 @@ namespace CSharpTotal_Ejercicios
 {
     internal class Program
     {
+
+        // TODO: Crear Carpetas por Sección del CURSO con sus ejemplos, teoria y desafios.
+        // TODO: Menu de Ejecución de Proyectos.
         static void Main(string[] args)
         {
             // Desafio1.Principal();
@@ -12,8 +15,11 @@ namespace CSharpTotal_Ejercicios
             // Desafio3.Principal();
 
             // Desafio4.Principal();
+            // Operadores.Principal();
 
-            Operadores.Principal();
+            // ## Sección 4. Toma Desiciones
+            TomaDesiciones.Principal();
+            
 
 
         }
