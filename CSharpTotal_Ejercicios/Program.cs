@@ -30,7 +30,8 @@ namespace CSharpTotal_Ejercicios
             // ## Sección 5. Loop
             // LoopFor.Principal();
             // LoopDoWhile.Principal();
-            LoopWhile.Principal();
+            // LoopWhile.Principal();
+            BreakContinue.Principal();
             
 
 
