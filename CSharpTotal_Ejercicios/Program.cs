@@ -21,7 +21,9 @@ namespace CSharpTotal_Ejercicios
             // ## Sección 4. Toma Desiciones
             // TomaDesiciones.Principal();
             // TomaDesiciones.CondicionesAnidados();
-            Desafio5.Principal();
+            // Desafio5.Principal();
+            // CondisionSwitch.Principal();
+            Desafio6.Principal();
             
 
 
