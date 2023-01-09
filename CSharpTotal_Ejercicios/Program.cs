@@ -7,6 +7,7 @@ namespace CSharpTotal_Ejercicios
 
         // TODO: Crear Carpetas por Sección del CURSO con sus ejemplos, teoria y desafios.
         // TODO: Menu de Ejecución de Proyectos.
+        // TODO: Documentar las clases
         static void Main(string[] args)
         {
             // Desafio1.Principal();
@@ -19,7 +20,8 @@ namespace CSharpTotal_Ejercicios
 
             // ## Sección 4. Toma Desiciones
             // TomaDesiciones.Principal();
-            TomaDesiciones.CondicionesAnidados();
+            // TomaDesiciones.CondicionesAnidados();
+            Desafio5.Principal();
             
 
 
