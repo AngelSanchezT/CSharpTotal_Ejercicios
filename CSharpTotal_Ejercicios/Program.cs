@@ -25,7 +25,8 @@ namespace CSharpTotal_Ejercicios
             // Desafio5.Principal();
             // CondisionSwitch.Principal();
             // Desafio6.Principal();
-            Desafio7.Principal();
+            // Desafio7.Principal();
+            LoopFor.Principal();
             
 
 
