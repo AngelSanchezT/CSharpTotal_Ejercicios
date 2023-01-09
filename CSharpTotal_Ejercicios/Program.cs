@@ -11,7 +11,10 @@ namespace CSharpTotal_Ejercicios
             // Desafio2.Desafio2_2();
             // Desafio3.Principal();
 
-            Desafio4.Principal();
+            // Desafio4.Principal();
+
+            Operadores.Principal();
+
 
         }
     }
