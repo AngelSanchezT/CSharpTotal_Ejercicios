@@ -45,5 +45,31 @@ namespace CSharpTotal_Ejercicios
 
             Console.Read();
         }
+
+        public static void CondicionesAnidados()
+        {
+
+            bool esAdmin = false;
+            bool estaRegistrado = true;
+            string nombreDeUsuario = "";
+
+            Console.WriteLine("Por favor, ingrese su nombre de usuario");
+            nombreDeUsuario = Console.ReadLine();
+            if (estaRegistrado && nombreDeUsuario != "" && nombreDeUsuario.Equals("Admin"))
+            {
+                Console.WriteLine("Hola usuario registrado");
+                Console.WriteLine("Hola " + nombreDeUsuario);
+                Console.WriteLine("Hola Admin");
+            }
+
+            if (esAdmin || estaRegistrado)
+            {
+                Console.WriteLine("Estás loguado");
+            }
+
+
+            Console.Read();
+
+        }
     }
 }

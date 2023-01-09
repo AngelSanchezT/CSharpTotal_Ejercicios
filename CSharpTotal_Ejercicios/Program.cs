@@ -18,7 +18,8 @@ namespace CSharpTotal_Ejercicios
             // Operadores.Principal();
 
             // ## Sección 4. Toma Desiciones
-            TomaDesiciones.Principal();
+            // TomaDesiciones.Principal();
+            TomaDesiciones.CondicionesAnidados();
             
 
 
