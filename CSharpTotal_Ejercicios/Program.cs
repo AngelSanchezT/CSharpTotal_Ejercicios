@@ -32,8 +32,21 @@ namespace CSharpTotal_Ejercicios
             // LoopDoWhile.Principal();
             // LoopWhile.Principal();
             // BreakContinue.Principal();
-            Desafío8.Principal();
-            
+            // Desafío8.Principal();
+
+            // ## Sección 6: Clases y Objetos
+            // Crea un Objeto de una clase.
+            // Una instancia de humano
+            Humano luis = new Humano("Luis", "Garay", "Marrón", 42);
+            Humano ana = new Humano("Ana", "Maina", "Verde", 1);
+
+            // Llama a un metodo de la clase
+            luis.presentarme();
+            ana.presentarme();
+
+            Console.Read();
+
+
 
 
         }
