@@ -37,17 +37,26 @@ namespace CSharpTotal_Ejercicios
             // ## Sección 6: Clases y Objetos
             // Crea un Objeto de una clase.
             // Una instancia de humano
+            /*
             Humano natalio = new Humano("Natalio");
             Humano juana = new Humano("Juana", "Garay", "verde");
             Humano milena = new Humano("Milena", "Millera");
             Humano Antonio = new Humano("Antonio", "Camilo", "Azul", 7);
-
+            */
             // Llama a un metodo de la clase
+            /*
             natalio.presentarme();
             juana.presentarme();
             milena.presentarme();
             Antonio.presentarme();
 
+            Console.Read();
+            */
+
+            // Propiedades y Encapsulamiento
+            Caja caja = new Caja(5, 4, 10);
+            Console.WriteLine("El volumen es de {0}", caja.Volumen);
+            caja.MuestraInfo();
             Console.Read();
 
 
