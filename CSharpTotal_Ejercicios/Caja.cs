@@ -6,6 +6,12 @@ namespace CSharpTotal_Ejercicios
 {
     internal class Caja
     {
+
+        //DESAFÍO
+        //Crea una Propiedad de solo lectura llamada SuperficieFrontal
+        //Se calcula con las variables alto y largo
+
+
         //Miembros variables
         private string color = "blanco";
         private int largo;
@@ -68,6 +74,14 @@ namespace CSharpTotal_Ejercicios
         {
             get => largo;
             set => largo = value;
+        }
+
+        public int SuperficieFrontal
+        {
+            get
+            {
+                return alto * largo;
+            }
         }
 
         //Miembro método
