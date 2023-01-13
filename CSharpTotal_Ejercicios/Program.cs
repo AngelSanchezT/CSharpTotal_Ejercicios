@@ -63,11 +63,13 @@ namespace CSharpTotal_Ejercicios
             */
 
             // Miembros y Finalizador/Destructor
-            Miembros nuevoMiembro = new Miembros();
-            nuevoMiembro.Amigo(true);
+            // Miembros nuevoMiembro = new Miembros();
+            // nuevoMiembro.Amigo(true);
 
             // Console.Read();
 
+            // Sección 7 - ARRAYS Parte I
+            Arrays.Principal();
 
 
 
