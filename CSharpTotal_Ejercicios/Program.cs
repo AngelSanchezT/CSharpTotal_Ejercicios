@@ -69,7 +69,9 @@ namespace CSharpTotal_Ejercicios
             // Console.Read();
 
             // Sección 7 - ARRAYS Parte I
-            Arrays.Principal();
+            // Arrays.Principal();
+            // LoopForEach.Principal();
+            ArraysMultidimensionales.Principal();
 
 
 

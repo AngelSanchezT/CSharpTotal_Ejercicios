@@ -6,7 +6,7 @@ namespace CSharpTotal_Ejercicios
 {
     internal class LoopForEach
     {
-        static void Principal() {
+        public static void Principal() {
 
             int[] nums = new int[10];
 
