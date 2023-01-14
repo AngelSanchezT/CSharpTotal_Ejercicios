@@ -77,7 +77,8 @@ namespace CSharpTotal_Ejercicios
             // Sección 8 - ARRAYS Parte II
             // ArraysIrregulares.Principal();
             // GruposAmigos.Principal();
-            ParametroArray.Principal();
+            // ParametroArray.Principal();
+            ArrayListsCurso.Principal();
 
 
 
