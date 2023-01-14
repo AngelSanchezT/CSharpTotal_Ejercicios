@@ -49,6 +49,7 @@ namespace CSharpTotal_Ejercicios
 
             otroArray2D[1, 1] = "Paco";
 
+            // Numero de Dimensiones de Un Array
             int dimension = otroArray2D.Rank;
 
             int[,] a2D = { { 1, 2 }, { 3, 4 } };
