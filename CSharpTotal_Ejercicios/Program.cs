@@ -75,7 +75,9 @@ namespace CSharpTotal_Ejercicios
             // TaTeTi.Principal();
 
             // Sección 8 - ARRAYS Parte II
-            ArraysIrregulares.Principal();
+            // ArraysIrregulares.Principal();
+            // GruposAmigos.Principal();
+            ParametroArray.Principal();
 
 
 
