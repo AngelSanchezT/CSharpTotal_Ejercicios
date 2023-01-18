@@ -79,7 +79,10 @@ namespace CSharpTotal_Ejercicios
             // GruposAmigos.Principal();
             // ParametroArray.Principal();
             // ArrayListsCurso.Principal();
-            ArrayListVsList.Principal();
+            // ArrayListVsList.Principal();
+
+            // Sección 9 - Herencia
+            Herencia.Principal();
 
 
 
