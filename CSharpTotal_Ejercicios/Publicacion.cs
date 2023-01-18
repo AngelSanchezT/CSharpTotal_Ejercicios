@@ -6,8 +6,8 @@ namespace CSharpTotal_Ejercicios
 {
     internal class Publicacion
     {
-        private static int publicacionID;
-
+        private static int publicacionID = 0;
+        
         //Propiedades
         protected int ID { get; set; }
         protected string Titulo { get; set; }
@@ -17,7 +17,7 @@ namespace CSharpTotal_Ejercicios
         //Constructor por defecto
         public Publicacion()
         {
-            ID = CrearID();
+            ID = 0;
             Titulo = " Mi primera publicación";
             EsPublico = true;
             Autor = " Juan Perez";
