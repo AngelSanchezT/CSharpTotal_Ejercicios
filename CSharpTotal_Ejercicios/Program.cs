@@ -78,8 +78,8 @@ namespace CSharpTotal_Ejercicios
             // ArraysIrregulares.Principal();
             // GruposAmigos.Principal();
             // ParametroArray.Principal();
-            ArrayListsCurso.Principal();
-
+            // ArrayListsCurso.Principal();
+            ArrayListVsList.Principal();
 
 
 
