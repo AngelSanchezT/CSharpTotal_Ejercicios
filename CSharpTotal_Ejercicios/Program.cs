@@ -84,7 +84,10 @@ namespace CSharpTotal_Ejercicios
             // Sección 9 - Herencia
             // Herencia.Principal();
             // Desafio9.Principal();
-            InterfazCurso.Principal();
+            // InterfazCurso.Principal();
+
+            // Sección 10 - Polimorfismo
+
 
 
 
