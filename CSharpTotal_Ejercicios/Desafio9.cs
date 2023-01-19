@@ -35,5 +35,21 @@ namespace CSharpTotal_Ejercicios
      */
     internal class Desafio9
     {
+        public static void Principal() 
+        {
+            Empleado miguel = new Empleado("Miguel", " Flores", 4000);
+            miguel.Trabajar();
+            miguel.Descansar();
+
+            Jefe chuckNorris = new Jefe("Ferrari", " Chuck", "Norris", 9999999);
+            chuckNorris.Dirigir();
+
+            Pasante laura = new Pasante(15, 20, "Laura", "Casas", 2000);
+            laura.Trabajar();
+            laura.Aprender();
+
+            Console.Read();
+        }
+
     }
 }

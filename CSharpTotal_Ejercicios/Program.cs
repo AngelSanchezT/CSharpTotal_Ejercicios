@@ -82,7 +82,8 @@ namespace CSharpTotal_Ejercicios
             // ArrayListVsList.Principal();
 
             // Sección 9 - Herencia
-            Herencia.Principal();
+            // Herencia.Principal();
+            Desafio9.Principal();
 
 
 
