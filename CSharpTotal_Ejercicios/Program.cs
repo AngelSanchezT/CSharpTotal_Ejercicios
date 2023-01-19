@@ -83,7 +83,8 @@ namespace CSharpTotal_Ejercicios
 
             // Sección 9 - Herencia
             // Herencia.Principal();
-            Desafio9.Principal();
+            // Desafio9.Principal();
+            InterfazCurso.Principal();
 
 
 
