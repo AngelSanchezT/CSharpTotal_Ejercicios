@@ -88,7 +88,11 @@ namespace CSharpTotal_Ejercicios
 
             // Sección 10 - Polimorfismo
             // Desafio10.Principal();
-            LeerEscribirTexto.Principal();
+            // LeerEscribirTexto.Principal();
+
+            // Sección 11 - Temas Avanzados de C#
+            // Strctus
+            Structs.Principal();
 
 
 
