@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CSharpTotal_Ejercicios
 {
-    internal class Audi:Auto
+    internal sealed class Audi:Auto
     {
         //Variables
         private string marca = "Audi";

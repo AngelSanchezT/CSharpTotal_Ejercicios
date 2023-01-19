@@ -24,7 +24,7 @@ namespace CSharpTotal_Ejercicios
             Console.WriteLine("Marca: {0} - Modelo: {1} - HP: {2} - Color: {3}", marca, Modelo, HP, Color);
         }
 
-        public override void Reparar()
+        public sealed override void Reparar()
         {
             Console.WriteLine("El BMW {0} está reparado", Modelo);
         }
