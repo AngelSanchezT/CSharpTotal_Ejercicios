@@ -39,6 +39,12 @@ namespace CSharpTotal_Ejercicios
             auto1.MostrarDetalles();
             auto2.MostrarDetalles();
 
+            auto1.SetearAutoInfo(1234, "Juan Garay");
+            auto2.SetearAutoInfo(1235, "Milena Rios");
+            auto1.LeerAutoInfo();
+            auto2.LeerAutoInfo();
+
+
             BMW bmwM5 = new BMW(330, "blanco", "M5");
             bmwM5.MostrarDetalles();
 
