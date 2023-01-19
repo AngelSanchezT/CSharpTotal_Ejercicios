@@ -92,7 +92,9 @@ namespace CSharpTotal_Ejercicios
 
             // Sección 11 - Temas Avanzados de C#
             // Strctus
-            Structs.Principal();
+            // Structs.Principal();
+            // Enums
+            Enums.Principal();
 
 
 
