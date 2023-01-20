@@ -96,8 +96,9 @@ namespace CSharpTotal_Ejercicios
             // Enums
             // Enums.Principal();
             // Clase Math
-            ClaseMath.Principal();
-
+            // ClaseMath.Principal();
+            // Clase Random
+            ClaseRandom.Principal();
 
 
         }
