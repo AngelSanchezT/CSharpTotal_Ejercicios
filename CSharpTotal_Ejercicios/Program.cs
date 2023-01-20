@@ -94,7 +94,9 @@ namespace CSharpTotal_Ejercicios
             // Strctus
             // Structs.Principal();
             // Enums
-            Enums.Principal();
+            // Enums.Principal();
+            // Clase Math
+            ClaseMath.Principal();
 
 
 
