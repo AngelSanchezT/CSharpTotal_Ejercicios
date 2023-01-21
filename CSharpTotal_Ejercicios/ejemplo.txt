@@ -1,0 +1,37 @@
+﻿1234567890
+	
+202-555-0102
+202-555-0196
+202.555.0196
+202#55530196
+0175/12345678
++49165/12312347
+0049165/12312347
+
+
+
+abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+
+LaLa La La LaLa
+
+Sr. Lopez
+Sr Valles
+Sr Parker
+Sr. P
+Sra Rios
+Sra Garay
+
+//Desafío - encuentra enlaces a sitios webs
+https://www.escueladirecta.com
+https://escueladirecta.com
+http://www.escueladirecta.com
+http://escueladirecta.com
+
+https?://(www.)?(\w+)(\.\w+)
+
+prueba@prueba.com
+fede_9@live.com
+
+MetaCaracteres (necesitan escape)
+.[{()\^$|?*+

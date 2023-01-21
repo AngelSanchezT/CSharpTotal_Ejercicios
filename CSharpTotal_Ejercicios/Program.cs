@@ -98,7 +98,9 @@ namespace CSharpTotal_Ejercicios
             // Clase Math
             // ClaseMath.Principal();
             // Clase Random
-            ClaseRandom.Principal();
+            // ClaseRandom.Principal();
+            // Expresiones Regulares
+            ExpresionesRegulares.Principal();
 
 
         }

@@ -1,0 +1,37 @@
+﻿CARACTER DE ESCAPE
+\t 	- Coincide con un tab
+\n 	- Coincide con una nueva línea
+
+CLASES DE CARACTERES
+.       - Carácter comodín: coincide con cualquier carácter excepto con \n
+\d      - Coincide con cualquier dígito decimal. (0-9)
+\D      - Coincide con cualquier carácter que no sea un dígito decimal. (0-9)
+\w      - Coincide con cualquier carácter de una palabra. (a-z, A-Z, 0-9, _)
+\W      - Coincide con cualquier carácter que no pertenezca a una palabra.
+\s      - Coincide con cualquier carácter que sea un espacio en blanco. (space, tab, newline)
+\S      - Coincide con cualquier carácter que no sea un espacio en blanco. (space, tab, newline)
+[character_group]     - Coincide con cualquier carácter de grupo_caracteres. Por defecto distingue mayúsculas y minúsculas.
+[^character_group]    - Negativo: Coincide con cualquier carácter que no sea de grupo_caracteres. Por defecto distingue mayúsculas y minúsculas.
+
+DELIMITADORES
+^       - La coincidencia debe comenzar al principio de la cadena.
+$       - Por defecto, la coincidencia se debe producir al final de la cadena o antes de \n al final de la cadena
+\A		- La coincidencia se debe producir al principio de la cadena.
+\Z 		- La coincidencia se debe producir al final de la cadena o antes de \n al final de la cadena.
+\b      - La coincidencia se debe producir en un límite entre un carácter \w (alfanumérico) y un carácter \W (no alfanumérico).
+\B      - La coincidencia no se debe producir en un límite \b.
+
+CONSTRUCTORES DE ALTERNANCIA
+|       - Ya sea lo que está antes de | o después.
+
+CONSTRUCTORES DE AGRUPAMIENTO
+( )     - Grupo
+
+CUANTIFICADORES
+*       - Coincide con el elemento anterior cero o más veces.
++       - Coincide con el elemento anterior una o más veces.
+?       - Coincide con el elemento anterior cero o una vez.
+{n}     - Coincide con el elemento anterior exactamente n veces.
+{n,m}   - Coincide con el elemento anterior al menos n veces, pero no más de m veces.
+
+
