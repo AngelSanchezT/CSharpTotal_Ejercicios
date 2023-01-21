@@ -91,16 +91,19 @@ namespace CSharpTotal_Ejercicios
             // LeerEscribirTexto.Principal();
 
             // Sección 11 - Temas Avanzados de C#
-            // Strctus
+            // 1 - Strctus
             // Structs.Principal();
-            // Enums
+            // 2 - Enums
             // Enums.Principal();
-            // Clase Math
+            // 3 - Clase Math
             // ClaseMath.Principal();
-            // Clase Random
+            // 4 - Clase Random
             // ClaseRandom.Principal();
-            // Expresiones Regulares
-            ExpresionesRegulares.Principal();
+            // 5 - Expresiones Regulares
+            // ExpresionesRegulares.Principal();
+            // 6 - Clase DateTime
+            FechaHora.Principal();
+
 
 
         }
