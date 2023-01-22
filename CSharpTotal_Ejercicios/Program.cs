@@ -104,9 +104,10 @@ namespace CSharpTotal_Ejercicios
             // 6 - Clase DateTime
             // FechaHora.Principal();
             // 7 - Nulabilidad
-            Nulabilidad.Principal();
+            // Nulabilidad.Principal();
 
-
+            // Curso de Buenas Practicas y Codigo Limpio.
+            ToDo.Principal();
 
         }
     }
