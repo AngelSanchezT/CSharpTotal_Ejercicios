@@ -15,19 +15,19 @@ namespace CSharpTotal_Ejercicios
             do
             {
                 menuSelected = ShowMainMenu();
-                if (menuSelected == 1)
+                if ((Menu)menuSelected == Menu.Add)
                 {
                     ShowMenuAdd();
                 }
-                else if (menuSelected == 2)
+                else if ((Menu)menuSelected == Menu.Remove)
                 {
                     ShowMenuRemove();
                 }
-                else if (menuSelected == 3)
+                else if ((Menu)menuSelected == Menu.List)
                 {
                     ShowMenuTaskList();
                 }
-            } while (menuSelected != 4);
+            } while ((Menu)menuSelected != Menu.Exit);
         }
 
         /// <summary>
@@ -108,5 +108,13 @@ namespace CSharpTotal_Ejercicios
                 Console.WriteLine("----------------------------------------");
             }
         }
+    }
+
+    public enum Menu
+    {
+        Add = 1,
+        Remove = 2,
+        List = 3,
+        Exit = 4
     }
 }
