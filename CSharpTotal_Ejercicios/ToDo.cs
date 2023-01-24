@@ -59,14 +59,12 @@ namespace CSharpTotal_Ejercicios
                 string taskSelected = Console.ReadLine();
                 // Remove one position
                 int indexToRemove = Convert.ToInt32(taskSelected) - 1;
-                if (indexToRemove > -1)
+                if (indexToRemove > -1 && TaskList.Count > 0)
                 {
-                    if (TaskList.Count > 0)
-                    {
-                        string taskRemove = TaskList[indexToRemove];
-                        TaskList.RemoveAt(indexToRemove);
-                        Console.WriteLine("Tarea " + taskRemove + " eliminada");
-                    }
+                    string taskRemove = TaskList[indexToRemove];
+                    TaskList.RemoveAt(indexToRemove);
+                    Console.WriteLine("Tarea " + taskRemove + " eliminada");
+                    
                 }
             }
             catch (Exception)
@@ -102,11 +100,9 @@ namespace CSharpTotal_Ejercicios
 
         public static void ShowTaskList()
         {
+            var indexTask = 1;
             Console.WriteLine("----------------------------------------");
-            for (int i = 0; i < TaskList.Count; i++)
-            {
-                Console.WriteLine((i + 1) + ". " + TaskList[i]);
-            }
+            TaskList.ForEach(task => Console.WriteLine((indexTask++) + ". " + task ));
             Console.WriteLine("----------------------------------------");
         }
     }
