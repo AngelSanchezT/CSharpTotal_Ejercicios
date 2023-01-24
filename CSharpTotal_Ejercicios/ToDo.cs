@@ -70,7 +70,7 @@ namespace CSharpTotal_Ejercicios
                     {
                         string taskRemove = TaskList[indexToRemove];
                         TaskList.RemoveAt(indexToRemove);
-                        Console.WriteLine("Tarea " + taskRemove + " eliminada");
+                        Console.WriteLine($"Tarea {taskRemove} eliminada");
 
                     }
                 }                
@@ -112,7 +112,7 @@ namespace CSharpTotal_Ejercicios
         {
             var indexTask = 1;
             Console.WriteLine("----------------------------------------");
-            TaskList.ForEach(task => Console.WriteLine((indexTask++) + ". " + task ));
+            TaskList.ForEach(task => Console.WriteLine($"{indexTask++}. {task}" ));
             Console.WriteLine("----------------------------------------");
         }
     }
