@@ -6,15 +6,14 @@ namespace CSharpTotal_Ejercicios
 {
     internal class ToDo
     {
-        public static List<string> TaskList { get; set; } 
+        public static List<string> TaskList { get; set; } = new List<string>();
 
         public static void Principal()
         {
-           
+
             int menuSelected = 0;
             do
             {
-                TaskList = new List<string>();
                 menuSelected = ShowMainMenu();
                 if ((Menu)menuSelected == Menu.Add)
                 {
@@ -32,9 +31,13 @@ namespace CSharpTotal_Ejercicios
         }
 
         /// <summary>
-        /// Show the main menu 
+        /// Show the options for Task:<br />
+        /// 1. Nueva Tarea. <br />
+        /// 2. Remover tarea. <br />
+        /// 3. Tareas pendientes.<br />
+        /// 4. Salir.<br />
         /// </summary>
-        /// <returns>Returns option indicated by user</returns>
+        /// <returns>Returns option selected by user</returns>
         public static int ShowMainMenu()
         {
             Console.WriteLine("----------------------------------------");
@@ -44,7 +47,6 @@ namespace CSharpTotal_Ejercicios
             Console.WriteLine("3. Tareas pendientes");
             Console.WriteLine("4. Salir");
 
-            // Read line
             string menuSelected = Console.ReadLine();
             return Convert.ToInt32(menuSelected);
         }
@@ -54,17 +56,16 @@ namespace CSharpTotal_Ejercicios
             try
             {
                 Console.WriteLine("Ingrese el número de la tarea a remover: ");
-                // Show current taks
                 ShowTaskList();
 
                 string taskSelected = Console.ReadLine();
-                // Remove one position
+                // Remove one position because the array starts in 0
                 int indexToRemove = Convert.ToInt32(taskSelected) - 1;
 
-                if (indexToRemove > (TaskList.Count  - 1 ) || indexToRemove < 0) 
+                if (indexToRemove > (TaskList.Count - 1) || indexToRemove < 0)
                 {
                     Console.WriteLine("Numero de tarea seleccionado no es valido");
-                } 
+                }
                 else
                 {
                     if (indexToRemove > -1 && TaskList.Count > 0)
@@ -74,7 +75,7 @@ namespace CSharpTotal_Ejercicios
                         Console.WriteLine($"Tarea {taskRemove} eliminada");
 
                     }
-                }                
+                }
             }
             catch (Exception)
             {
@@ -113,7 +114,7 @@ namespace CSharpTotal_Ejercicios
         {
             var indexTask = 1;
             Console.WriteLine("----------------------------------------");
-            TaskList.ForEach(task => Console.WriteLine($"{indexTask++}. {task}" ));
+            TaskList.ForEach(task => Console.WriteLine($"{indexTask++}. {task}"));
             Console.WriteLine("----------------------------------------");
         }
     }
