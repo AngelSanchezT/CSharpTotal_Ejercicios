@@ -54,11 +54,7 @@ namespace CSharpTotal_Ejercicios
             {
                 Console.WriteLine("Ingrese el número de la tarea a remover: ");
                 // Show current taks
-                for (int i = 0; i < TaskList.Count; i++)
-                {
-                    Console.WriteLine((i + 1) + ". " + TaskList[i]);
-                }
-                Console.WriteLine("----------------------------------------");
+                ShowTaskList();
 
                 string taskSelected = Console.ReadLine();
                 // Remove one position
@@ -100,13 +96,18 @@ namespace CSharpTotal_Ejercicios
             }
             else
             {
-                Console.WriteLine("----------------------------------------");
-                for (int i = 0; i < TaskList.Count; i++)
-                {
-                    Console.WriteLine((i + 1) + ". " + TaskList[i]);
-                }
-                Console.WriteLine("----------------------------------------");
+                ShowTaskList();
             }
+        }
+
+        public static void ShowTaskList()
+        {
+            Console.WriteLine("----------------------------------------");
+            for (int i = 0; i < TaskList.Count; i++)
+            {
+                Console.WriteLine((i + 1) + ". " + TaskList[i]);
+            }
+            Console.WriteLine("----------------------------------------");
         }
     }
 
