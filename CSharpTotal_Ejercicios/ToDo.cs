@@ -6,14 +6,15 @@ namespace CSharpTotal_Ejercicios
 {
     internal class ToDo
     {
-        public static List<string> TaskList { get; set; }
+        public static List<string> TaskList { get; set; } 
 
         public static void Principal()
         {
-            TaskList = new List<string>();
+           
             int menuSelected = 0;
             do
             {
+                TaskList = new List<string>();
                 menuSelected = ShowMainMenu();
                 if ((Menu)menuSelected == Menu.Add)
                 {
@@ -98,13 +99,13 @@ namespace CSharpTotal_Ejercicios
 
         public static void ShowMenuTaskList()
         {
-            if (TaskList == null || TaskList.Count == 0)
+            if (TaskList?.Count > 0)
             {
-                Console.WriteLine("No hay tareas por realizar");
+                ShowTaskList();
             }
             else
             {
-                ShowTaskList();
+                Console.WriteLine("No hay tareas por realizar");
             }
         }
 
