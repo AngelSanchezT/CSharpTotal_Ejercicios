@@ -106,8 +106,13 @@ namespace CSharpTotal_Ejercicios
             // 7 - Nulabilidad
             // Nulabilidad.Principal();
 
+            // Sección 13 - Eventos y Delegados
+            // Delegados Simples y Multidifusión
+            EjemploDelegados.Principal();
+
+
             // Curso de Buenas Practicas y Codigo Limpio.
-            ToDo.Principal();
+            // ToDo.Principal();
 
         }
     }
