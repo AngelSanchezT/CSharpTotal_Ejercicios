@@ -108,7 +108,10 @@ namespace CSharpTotal_Ejercicios
 
             // Sección 13 - Eventos y Delegados
             // Delegados Simples y Multidifusión
-            EjemploDelegados.Principal();
+            // EjemploDelegados.Principal();
+            MetodosAnonimos.Principal();
+
+
 
 
             // Curso de Buenas Practicas y Codigo Limpio.
