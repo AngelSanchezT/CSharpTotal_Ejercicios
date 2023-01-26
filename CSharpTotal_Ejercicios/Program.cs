@@ -109,8 +109,10 @@ namespace CSharpTotal_Ejercicios
             // Sección 13 - Eventos y Delegados
             // Delegados Simples y Multidifusión
             // EjemploDelegados.Principal();
-            MetodosAnonimos.Principal();
-
+            // Metodos Anonimos
+            // MetodosAnonimos.Principal();
+            // Expresiones Lambda
+            ExpresionesLambda.Principal();
 
 
 
