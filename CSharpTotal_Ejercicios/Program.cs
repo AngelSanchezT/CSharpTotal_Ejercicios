@@ -112,7 +112,10 @@ namespace CSharpTotal_Ejercicios
             // Metodos Anonimos
             // MetodosAnonimos.Principal();
             // Expresiones Lambda
-            ExpresionesLambda.Principal();
+            // ExpresionesLambda.Principal();
+
+            // Eventos y Delegados
+            EventosYDelegados.Principal();
 
 
 
