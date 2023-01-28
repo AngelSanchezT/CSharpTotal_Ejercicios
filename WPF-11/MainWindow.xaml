@@ -1,0 +1,22 @@
+﻿<Window x:Class="WPF_11.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_11"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <StackPanel>
+        <Label FontWeight="Bold" Foreground="Blue">AGREGA INGREDIENTES A TU PIZZA</Label>
+        <CheckBox Name="cbTodos" IsThreeState="True" Checked="cbTodosHaCambiado" Unchecked="cbTodosHaCambiado">Todos</CheckBox>
+        <StackPanel Margin="10">
+            <CheckBox Name="cbChile" Checked="cbSimpleHaCambiado" Unchecked="cbSimpleHaCambiado">
+                <TextBlock>
+                    Chile <Run Foreground="Red" FontWeight="Bold">Picante</Run>
+                </TextBlock>
+            </CheckBox>
+            <CheckBox Name="cbHongos" Checked="cbSimpleHaCambiado" Unchecked="cbSimpleHaCambiado">Hongos</CheckBox>
+            <CheckBox Name="cbMuzzarella" Checked="cbSimpleHaCambiado" Unchecked="cbSimpleHaCambiado">Muzzarella</CheckBox>
+        </StackPanel>
+    </StackPanel>
+</Window>
