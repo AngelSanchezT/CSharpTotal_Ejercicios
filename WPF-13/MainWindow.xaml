@@ -1,0 +1,30 @@
+﻿<Window x:Class="WPF_13.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_13"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <StackPanel Margin="10">
+        <Label FontWeight="Bold" FontSize="20">Tu me quieres?</Label>
+        <RadioButton IsChecked="true" Margin="5" VerticalContentAlignment="Center">
+            <WrapPanel>
+                <Rectangle Fill="Green" Width="16" Height="16"/>
+                <TextBlock Text="Si" Foreground="Green" FontSize="20" Margin="5,0,0,0"/>
+            </WrapPanel>
+        </RadioButton>
+        <RadioButton Margin="5" VerticalContentAlignment="Center" Checked="No_Seleccionado">
+            <WrapPanel>
+                <Rectangle Fill="Red" Width="16" Height="16"/>
+                <TextBlock Text="No" Foreground="Red" FontSize="20" Margin="5,0,0,0"/>
+            </WrapPanel>
+        </RadioButton>
+        <RadioButton Margin="5" VerticalContentAlignment="Center">
+            <WrapPanel>
+                <Image Source="C:\Users\Win10\Desktop\MasterclassC#\Recursos\11-13_Quizas.png" Width="32" Height="32"></Image>
+                <TextBlock Text="Quizás" Foreground="Blue" FontSize="20" Margin="5,0,0,0"/>
+            </WrapPanel>
+        </RadioButton>
+    </StackPanel>
+</Window>
