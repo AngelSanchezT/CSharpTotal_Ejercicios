@@ -1,0 +1,13 @@
+﻿<Window x:Class="WPF_07.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_07"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <StackPanel>
+        <TextBox Name="MiTextBox" Width="100" Margin="50" Text="{Binding ElementName=MiSlider, Path=Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <Slider IsSnapToTickEnabled="True" Name="MiSlider" Minimum="0" Maximum="100"/>
+    </StackPanel>
+</Window>
