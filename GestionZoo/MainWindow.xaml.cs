@@ -148,6 +148,92 @@ namespace GestionZoo
                 sqlConnection.Close();
                 MuestraZoos();
             }
+
+        }
+
+        private void AgregarZoo_Click (object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string consulta = "Insert into Zoo values (@Ubicación)";
+                SqlCommand sqlCommand = new SqlCommand(consulta, sqlConnection);
+                sqlConnection.Open();
+                sqlCommand.Parameters.AddWithValue("@Ubicación", miTextBox.Text);
+                sqlCommand.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                sqlConnection.Close();
+                MuestraZoos();
+            }
+        }
+
+        private void AgregarAnimalAZoo_Click (object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string consulta = "Insert into AnimalZoo values (@ZooId, @AnimalId)";
+                SqlCommand sqlCommand = new SqlCommand(consulta, sqlConnection);
+                sqlConnection.Open();
+                sqlCommand.Parameters.AddWithValue("@ZooId", ListaZoos.SelectedValue);
+                sqlCommand.Parameters.AddWithValue("@AnimalId", ListaAnimales.SelectedValue);
+                sqlCommand.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                sqlConnection.Close();
+                MuestraAnimalesAsociados();
+            }
+        }
+
+        private void EliminarAnimal_Click (object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string consulta = "Delete from Animal where id = @AnimalId";
+                SqlCommand sqlCommand = new SqlCommand(consulta, sqlConnection);
+                sqlConnection.Open();
+                sqlCommand.Parameters.AddWithValue("@AnimalId", ListaAnimales.SelectedValue);
+                sqlCommand.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                sqlConnection.Close();
+                MuestraAnimales();
+            }
+        }
+
+        private void AgregarAnimal_Click (object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string consulta = "Insert into Animal values (@Nombre)";
+                SqlCommand sqlCommand = new SqlCommand(consulta, sqlConnection);
+                sqlConnection.Open();
+                sqlCommand.Parameters.AddWithValue("@Nombre", miTextBox.Text);
+                sqlCommand.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                sqlConnection.Close();
+                MuestraAnimales();
+            }
         }
     }
 }
