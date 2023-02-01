@@ -35,6 +35,7 @@ namespace GestionZoo
             sqlConnection = new SqlConnection(connectionString);
 
             MuestraZoos();
+            MuestraAnimales();
         }
 
 
@@ -64,6 +65,33 @@ namespace GestionZoo
 
             
         }
+
+        private void MuestraAnimales()
+        {
+
+            try
+            {
+                string consulta = "select * from Animal";
+
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(consulta, sqlConnection);
+
+                using (sqlDataAdapter)
+                {
+                    DataTable animalTabla = new DataTable();
+                    sqlDataAdapter.Fill(animalTabla);
+
+                    ListaAnimales.DisplayMemberPath = "Nombre";
+                    ListaAnimales.SelectedValuePath = "Id";
+                    ListaAnimales.ItemsSource = animalTabla.DefaultView;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            
+        }
+
 
         private void MuestraAnimalesAsociados()
         {
