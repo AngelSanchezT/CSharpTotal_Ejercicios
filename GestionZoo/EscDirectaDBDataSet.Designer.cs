@@ -30,6 +30,10 @@ namespace GestionZoo {
         
         private AnimalZooDataTable tableAnimalZoo;
         
+        private global::System.Data.DataRelation relationAnimalCE;
+        
+        private global::System.Data.DataRelation relationZooCE;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -242,6 +246,8 @@ namespace GestionZoo {
                     this.tableAnimalZoo.InitVars();
                 }
             }
+            this.relationAnimalCE = this.Relations["AnimalCE"];
+            this.relationZooCE = this.Relations["ZooCE"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -258,6 +264,14 @@ namespace GestionZoo {
             base.Tables.Add(this.tableAnimal);
             this.tableAnimalZoo = new AnimalZooDataTable();
             base.Tables.Add(this.tableAnimalZoo);
+            this.relationAnimalCE = new global::System.Data.DataRelation("AnimalCE", new global::System.Data.DataColumn[] {
+                        this.tableAnimal.IdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableAnimalZoo.AnimalIdColumn}, false);
+            this.Relations.Add(this.relationAnimalCE);
+            this.relationZooCE = new global::System.Data.DataRelation("ZooCE", new global::System.Data.DataColumn[] {
+                        this.tableZoo.IdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableAnimalZoo.ZooIdColumn}, false);
+            this.Relations.Add(this.relationZooCE);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1005,12 +1019,18 @@ namespace GestionZoo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public AnimalZooRow AddAnimalZooRow(int ZooId, int AnimalId) {
+            public AnimalZooRow AddAnimalZooRow(ZooRow parentZooRowByZooCE, AnimalRow parentAnimalRowByAnimalCE) {
                 AnimalZooRow rowAnimalZooRow = ((AnimalZooRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        ZooId,
-                        AnimalId};
+                        null,
+                        null};
+                if ((parentZooRowByZooCE != null)) {
+                    columnValuesArray[1] = parentZooRowByZooCE[0];
+                }
+                if ((parentAnimalRowByAnimalCE != null)) {
+                    columnValuesArray[2] = parentAnimalRowByAnimalCE[0];
+                }
                 rowAnimalZooRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowAnimalZooRow);
                 return rowAnimalZooRow;
@@ -1225,6 +1245,17 @@ namespace GestionZoo {
                     this[this.tableZoo.UbicaciónColumn] = value;
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public AnimalZooRow[] GetAnimalZooRows() {
+                if ((this.Table.ChildRelations["ZooCE"] == null)) {
+                    return new AnimalZooRow[0];
+                }
+                else {
+                    return ((AnimalZooRow[])(base.GetChildRows(this.Table.ChildRelations["ZooCE"])));
+                }
+            }
         }
         
         /// <summary>
@@ -1260,6 +1291,17 @@ namespace GestionZoo {
                 }
                 set {
                     this[this.tableAnimal.NombreColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public AnimalZooRow[] GetAnimalZooRows() {
+                if ((this.Table.ChildRelations["AnimalCE"] == null)) {
+                    return new AnimalZooRow[0];
+                }
+                else {
+                    return ((AnimalZooRow[])(base.GetChildRows(this.Table.ChildRelations["AnimalCE"])));
                 }
             }
         }
@@ -1308,6 +1350,28 @@ namespace GestionZoo {
                 }
                 set {
                     this[this.tableAnimalZoo.AnimalIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public AnimalRow AnimalRow {
+                get {
+                    return ((AnimalRow)(this.GetParentRow(this.Table.ParentRelations["AnimalCE"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["AnimalCE"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ZooRow ZooRow {
+                get {
+                    return ((ZooRow)(this.GetParentRow(this.Table.ParentRelations["ZooCE"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["ZooCE"]);
                 }
             }
         }

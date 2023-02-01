@@ -5,8 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GestionZoo"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="500" Width="725
+        ">
     <Grid>
-        
+        <Label Content="Lista de Zoos" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <ListBox Name ="ListaZoos" HorizontalAlignment="Left" Height="253" Margin="10,36,0,0" VerticalAlignment="Top" Width="149" SelectionChanged="ListaZoos_SelectionChanged"/>
+        <Label Content="Lista de Animales Asociados" HorizontalAlignment="Left" Margin="204,10,0,0" VerticalAlignment="Top"/>
+        <ListBox x:Name ="ListaAnimalesAsociados" HorizontalAlignment="Left" Height="253" Margin="204,36,0,0" VerticalAlignment="Top" Width="149"/>
+
     </Grid>
 </Window>
