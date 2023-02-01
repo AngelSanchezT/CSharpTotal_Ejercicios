@@ -118,7 +118,7 @@ namespace GestionZoo
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.ToString());
+                //MessageBox.Show(e.ToString());
             }
              
 
@@ -127,6 +127,27 @@ namespace GestionZoo
         private void ListaZoos_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             MuestraAnimalesAsociados();
+        }
+
+        private void EliminarZoo_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string consulta = "Delete from Zoo where id = @ZooId";
+                SqlCommand sqlCommand = new SqlCommand(consulta, sqlConnection);
+                sqlConnection.Open();
+                sqlCommand.Parameters.AddWithValue("@ZooId", ListaZoos.SelectedValue);
+                sqlCommand.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                sqlConnection.Close();
+                MuestraZoos();
+            }
         }
     }
 }
