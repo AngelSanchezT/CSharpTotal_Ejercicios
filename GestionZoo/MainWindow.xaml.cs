@@ -23,7 +23,7 @@ namespace GestionZoo
     /// </summary>
     public partial class MainWindow : Window
     {
-        SqlConnection sqlConnection;
+        SqlConnection sqlConnection; 
 
         public MainWindow()
         {
@@ -37,7 +37,6 @@ namespace GestionZoo
             MuestraZoos();
             MuestraAnimales();
         }
-
 
         private void MuestraZoos()
         {
@@ -92,7 +91,6 @@ namespace GestionZoo
             
         }
 
-
         private void MuestraAnimalesAsociados()
         {
 
@@ -124,9 +122,62 @@ namespace GestionZoo
 
         }
 
+        private void MuestraZooElegidoEnTextBox()
+        {
+            try
+            {
+                string consulta = "select Ubicación from Zoo where Id = @ZooId";
+
+                SqlCommand sqlCommand = new SqlCommand(consulta, sqlConnection);
+
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+
+                using (sqlDataAdapter)
+                {
+                    sqlCommand.Parameters.AddWithValue("@ZooId", ListaZoos.SelectedValue);
+
+                    DataTable ZooDataTabla = new DataTable();
+                    sqlDataAdapter.Fill(ZooDataTabla);
+
+                    miTextBox.Text = ZooDataTabla.Rows[0]["Ubicación"].ToString();
+                }
+            }
+            catch (Exception e)
+            {
+                //MessageBox.Show(e.ToString());
+            }
+        }
+
+        private void MuestraAnimalElegidoEnTextBox()
+        {
+            try
+            {
+                string consulta = "select Nombre from Animal where Id = @AnimalId";
+
+                SqlCommand sqlCommand = new SqlCommand(consulta, sqlConnection);
+
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+
+                using (sqlDataAdapter)
+                {
+                    sqlCommand.Parameters.AddWithValue("@AnimalId", ListaAnimales.SelectedValue);
+
+                    DataTable ZooDataTabla = new DataTable();
+                    sqlDataAdapter.Fill(ZooDataTabla);
+
+                    miTextBox.Text = ZooDataTabla.Rows[0]["Nombre"].ToString();
+                }
+            }
+            catch (Exception e)
+            {
+                //MessageBox.Show(e.ToString());
+            }
+        }
+
         private void ListaZoos_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             MuestraAnimalesAsociados();
+            MuestraZooElegidoEnTextBox();
         }
 
         private void EliminarZoo_Click(object sender, RoutedEventArgs e)
@@ -194,6 +245,50 @@ namespace GestionZoo
             }
         }
 
+        private void ActualizarZoo_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string consulta = "Update Zoo Set Ubicación = @Ubicación where Id = @ZooId";
+                SqlCommand sqlCommand = new SqlCommand(consulta, sqlConnection);
+                sqlConnection.Open();
+                sqlCommand.Parameters.AddWithValue("@ZooId", ListaZoos.SelectedValue);
+                sqlCommand.Parameters.AddWithValue("@Ubicación", miTextBox.Text);
+                sqlCommand.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                sqlConnection.Close();
+                MuestraZoos();
+            }
+        }
+
+        private void ActualizarAnimal_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string consulta = "Update Animal Set Nombre = @Nombre where Id = @AnimalId";
+                SqlCommand sqlCommand = new SqlCommand(consulta, sqlConnection);
+                sqlConnection.Open();
+                sqlCommand.Parameters.AddWithValue("@AnimalId", ListaAnimales.SelectedValue);
+                sqlCommand.Parameters.AddWithValue("@Nombre", miTextBox.Text);
+                sqlCommand.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                sqlConnection.Close();
+                MuestraAnimales();
+            }
+        }
+
         private void EliminarAnimal_Click (object sender, RoutedEventArgs e)
         {
             try
@@ -234,6 +329,11 @@ namespace GestionZoo
                 sqlConnection.Close();
                 MuestraAnimales();
             }
+        }
+
+        private void ListaAnimales_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            MuestraAnimalElegidoEnTextBox();
         }
     }
 }

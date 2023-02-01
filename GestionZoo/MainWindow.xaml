@@ -11,13 +11,13 @@
         <ListBox Name ="ListaZoos" HorizontalAlignment="Left" Height="243" Margin="10,46,0,0" VerticalAlignment="Top" Width="149" SelectionChanged="ListaZoos_SelectionChanged"/>
         <Label Content="Lista de Animales Asociados" HorizontalAlignment="Left" Margin="204,10,0,0" VerticalAlignment="Top"/>
         <ListBox x:Name ="ListaAnimalesAsociados" HorizontalAlignment="Left" Height="243" Margin="204,46,0,0" VerticalAlignment="Top" Width="149"/>
-        <ListBox x:Name ="ListaAnimales" HorizontalAlignment="Left" Height="355" Margin="407,46,0,0" VerticalAlignment="Top" Width="149"/>
+        <ListBox x:Name ="ListaAnimales" HorizontalAlignment="Left" Height="355" Margin="407,46,0,0" VerticalAlignment="Top" Width="149" SelectionChanged="ListaAnimales_SelectionChanged"/>
         <Button Content="Eliminar Zoo" HorizontalAlignment="Left" Margin="10,294,0,0" VerticalAlignment="Top" Width="149" Height="31" Click="EliminarZoo_Click"/>
         <Button Content="Quitar Animal" HorizontalAlignment="Left" Margin="204,294,0,0" VerticalAlignment="Top" Width="149" Height="31"/>
         <Button Content="Agregar Zoo" Click="AgregarZoo_Click" HorizontalAlignment="Left" Margin="10,370,0,0" VerticalAlignment="Top" Width="149" Height="31"/>
         <Button Content="Agregar Animal" Click="AgregarAnimal_Click" HorizontalAlignment="Left" Margin="204,370,0,0" VerticalAlignment="Top" Width="149" Height="31"/>
-        <Button Content="Actualizar Zoo" HorizontalAlignment="Left" Margin="10,406,0,0" VerticalAlignment="Top" Width="149" Height="31"/>
-        <Button Content="Actualizar Animal" HorizontalAlignment="Left" Margin="204,406,0,0" VerticalAlignment="Top" Width="149" Height="31"/>
+        <Button Content="Actualizar Zoo" Click="ActualizarZoo_Click" HorizontalAlignment="Left" Margin="10,406,0,0" VerticalAlignment="Top" Width="149" Height="31"/>
+        <Button Content="Actualizar Animal" Click="ActualizarAnimal_Click" HorizontalAlignment="Left" Margin="204,406,0,0" VerticalAlignment="Top" Width="149" Height="31"/>
         <Button Content="Eliminar Animal" Click="EliminarAnimal_Click" HorizontalAlignment="Left" Margin="407,406,0,0" VerticalAlignment="Top" Width="149" Height="31"/>
         <Button Content="Agregar Animal al Zoo" Click="AgregarAnimalAZoo_Click" HorizontalAlignment="Left" Margin="407,10,0,0" VerticalAlignment="Top" Width="149" Height="31"/>
         <TextBox Name="miTextBox" HorizontalAlignment="Left" Height="35" Margin="10,330,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="343"/>
