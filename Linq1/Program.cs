@@ -13,7 +13,9 @@ namespace Linq1
             // Demostración de Linq
             // Linq1.Principal();
             // Gestión de Universidades
-            LinqObjetosYOperadoresConsulta.Principal();
+            // LinqObjetosYOperadoresConsulta.Principal();
+            // Linq y XML
+            LinqConXML.Principal();
 
         }
 
