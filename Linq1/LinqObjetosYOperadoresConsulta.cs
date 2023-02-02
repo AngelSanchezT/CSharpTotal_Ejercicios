@@ -14,6 +14,36 @@ namespace Linq1
             ge.ObtenerEstudiantesMasculinos();
             ge.ObtenerEstudiantesFemeninos();
             ge.ObtenerEstudiantesNoBinarios();
+            ge.OrdenarEstudiantesPorEdad();
+            ge.MostrarEstudiantesUBA();
+
+            /*string ingreso = Console.ReadLine();
+
+            try
+            {
+                int ingresoComInt = Convert.ToInt32(ingreso);
+
+                ge.MostrarEstudiantesDeEsaUniversidad(ingresoComInt);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Valor equivocado");
+            }*/
+
+            int[] unosInts = { 30, 12, 4, 3, 19 };
+            IEnumerable<int> intsOrdenados = from i in unosInts orderby i select i;
+
+            IEnumerable<int> intsAlReves = intsOrdenados.Reverse();
+            foreach (int i in intsAlReves)
+            {
+                Console.WriteLine(i);
+            }
+
+            IEnumerable<int> otrosIntAlReves = from i in unosInts orderby i descending select i;
+            foreach (int i in otrosIntAlReves)
+            {
+                Console.WriteLine(i);
+            }
             Console.Read();
         }
     }
@@ -76,6 +106,45 @@ namespace Linq1
             }
         }
 
+        public void OrdenarEstudiantesPorEdad()
+        {
+            var estudiantesOrdenados = from estudiante in estudiantes orderby estudiante.Edad select estudiante;
+            Console.WriteLine("Oestudiantes ordenados según edad: ");
+            foreach (Estudiante e in estudiantesOrdenados)
+            {
+                e.MostrarEstudiante();
+            }
+        }
+
+        public void MostrarEstudiantesUBA()
+        {
+            IEnumerable<Estudiante> estudiantesUBA = from estudiante in estudiantes
+                                                     join universidad in universidades on estudiante.UniversidadId
+                                                     equals universidad.Id
+                                                     where universidad.Nombre == "UBA"
+                                                     select estudiante;
+
+            Console.WriteLine("Estudiantes de UBA");
+            foreach (Estudiante e in estudiantesUBA)
+            {
+                e.MostrarEstudiante();
+            }
+        }
+
+        public void MostrarEstudiantesDeEsaUniversidad(int Id)
+        {
+            IEnumerable<Estudiante> esosEstudiantes = from estudiante in estudiantes
+                                                      join universidad in universidades on estudiante.UniversidadId
+                                                      equals universidad.Id
+                                                      where universidad.Id == Id
+                                                      select estudiante;
+
+            Console.WriteLine("Estudiantes de Universidad {0}", Id);
+            foreach (Estudiante e in esosEstudiantes)
+            {
+                e.MostrarEstudiante();
+            }
+        }
 
     }
 
