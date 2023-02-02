@@ -11,7 +11,10 @@ namespace Linq1
         static void Main(string[] args)
         {
             // Demostración de Linq
-            Linq1.Principal();
+            // Linq1.Principal();
+            // Gestión de Universidades
+            LinqObjetosYOperadoresConsulta.Principal();
+
         }
 
         
