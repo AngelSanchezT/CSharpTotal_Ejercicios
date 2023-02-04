@@ -39,8 +39,9 @@ namespace LinqConSql
             //ObtenerMateriasDeMateo();
             //ObtenerEstudiantesDeUNC();
             //ObtenerUniversidadesConTransgenero();
-            ObtenerMateriasDeUBA();
-
+            //ObtenerMateriasDeUBA();
+            //ActualizarMateo();
+            EliminarJuan();
 
         }
 
@@ -162,6 +163,28 @@ namespace LinqConSql
                               select em.Materia;
 
             DataGridPrincipal.ItemsSource = materiasUBA;
+        }
+
+        public void ActualizarMateo()
+        {
+            Estudiante mateo = dataContext.Estudiante.FirstOrDefault(es => es.Nombre == "Mateo");
+
+            mateo.Nombre = "Matteo";
+
+            dataContext.SubmitChanges();
+
+            DataGridPrincipal.ItemsSource = dataContext.Estudiante;
+        }
+
+        public void EliminarJuan()
+        {
+            Estudiante juan = dataContext.Estudiante.FirstOrDefault(es => es.Nombre == "Juan");
+
+            dataContext.Estudiante.DeleteOnSubmit(juan);
+
+            dataContext.SubmitChanges();
+
+            DataGridPrincipal.ItemsSource = dataContext.Estudiante;
         }
     }
 }
