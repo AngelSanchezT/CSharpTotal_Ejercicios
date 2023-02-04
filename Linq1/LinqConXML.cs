@@ -51,7 +51,7 @@ namespace Linq1
                                   Edad = estudiante.Element("Edad").Value,
                                   Universidad = estudiante.Element("Universidad").Value,
                                   Materias = estudiante.Element("Materias").Value
-                              };
+                              }; 
 
             foreach (var e in estudiantes)
             {
