@@ -36,7 +36,11 @@ namespace LinqConSql
             //AgregarMaterias();
             //AgregarAsociocionesEstudiantesMaterias();
             //ObtenerUniversidadDeMateo();
-            ObtenerMateriasDeMateo();
+            //ObtenerMateriasDeMateo();
+            //ObtenerEstudiantesDeUNC();
+            //ObtenerUniversidadesConTransgenero();
+            ObtenerMateriasDeUBA();
+
 
         }
 
@@ -130,6 +134,34 @@ namespace LinqConSql
             var materiasMateo = from em in mateo.EstudianteMateria select em.Materia;
 
             DataGridPrincipal.ItemsSource = materiasMateo;
+        }
+
+        public void ObtenerEstudiantesDeUNC()
+        {
+            var estudiantesUNC = from estudiante in dataContext.Estudiante where estudiante.Universidad.Nombre == "UNC" select estudiante;
+
+            DataGridPrincipal.ItemsSource = estudiantesUNC;
+
+        }
+
+        public void ObtenerUniversidadesConTransgenero()
+        {
+            var universidadesConTransgenero = from estudiante in dataContext.Estudiante
+                                              join universidad in dataContext.Universidad on estudiante.Universidad equals universidad
+                                              where estudiante.Genero == "Trans-genero"
+                                              select universidad;
+            DataGridPrincipal.ItemsSource = universidadesConTransgenero;
+        }
+
+        public void ObtenerMateriasDeUBA()
+        {
+            var materiasUBA = from em in dataContext.EstudianteMateria
+                              join estudiante in dataContext.Estudiante
+                              on em.EstudianteID equals estudiante.Id
+                              where estudiante.Universidad.Nombre == "UBA"
+                              select em.Materia;
+
+            DataGridPrincipal.ItemsSource = materiasUBA;
         }
     }
 }
