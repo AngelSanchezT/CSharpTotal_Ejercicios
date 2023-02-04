@@ -1,1 +1,19 @@
-﻿
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="EscDirectaDB" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=FEDEG\ESCDIRECTASQL;Initial Catalog=EscDirectaDB;User ID=sa" SettingsObjectName="LinqConSql.Properties.Settings" SettingsPropertyName="EscDirectaDBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Universidad" Member="Universidad">
+    <Type Name="Universidad">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Universidad_Estudiante" Member="Estudiante" ThisKey="Id" OtherKey="UniversidadId" Type="Estudiante" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Estudiante" Member="Estudiante">
+    <Type Name="Estudiante">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Genero" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UniversidadId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Universidad_Estudiante" Member="Universidad" ThisKey="UniversidadId" OtherKey="Id" Type="Universidad" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+</Database>

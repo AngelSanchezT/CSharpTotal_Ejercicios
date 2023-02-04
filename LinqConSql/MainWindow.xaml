@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LinqConSql"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="530">
     <Grid>
-        
+        <DataGrid x:Name="DataGridPrincipal" HorizontalAlignment="Left" Height="400" Margin="10" Width="500" VerticalAlignment="Top"></DataGrid>
     </Grid>
 </Window>

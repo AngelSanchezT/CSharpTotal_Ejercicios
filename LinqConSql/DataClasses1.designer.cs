@@ -22,6 +22,7 @@ namespace LinqConSql
 	using System;
 	
 	
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="EscDirectaDB")]
 	public partial class DataClasses1DataContext : System.Data.Linq.DataContext
 	{
 		
@@ -29,7 +30,19 @@ namespace LinqConSql
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnCreated();
+    partial void InsertUniversidad(Universidad instance);
+    partial void UpdateUniversidad(Universidad instance);
+    partial void DeleteUniversidad(Universidad instance);
+    partial void InsertEstudiante(Estudiante instance);
+    partial void UpdateEstudiante(Estudiante instance);
+    partial void DeleteEstudiante(Estudiante instance);
     #endregion
+		
+		public DataClasses1DataContext() : 
+				base(global::LinqConSql.Properties.Settings.Default.EscDirectaDBConnectionString, mappingSource)
+		{
+			OnCreated();
+		}
 		
 		public DataClasses1DataContext(string connection) : 
 				base(connection, mappingSource)
@@ -53,6 +66,311 @@ namespace LinqConSql
 				base(connection, mappingSource)
 		{
 			OnCreated();
+		}
+		
+		public System.Data.Linq.Table<Universidad> Universidad
+		{
+			get
+			{
+				return this.GetTable<Universidad>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Estudiante> Estudiante
+		{
+			get
+			{
+				return this.GetTable<Estudiante>();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Universidad")]
+	public partial class Universidad : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _Nombre;
+		
+		private EntitySet<Estudiante> _Estudiante;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnNombreChanging(string value);
+    partial void OnNombreChanged();
+    #endregion
+		
+		public Universidad()
+		{
+			this._Estudiante = new EntitySet<Estudiante>(new Action<Estudiante>(this.attach_Estudiante), new Action<Estudiante>(this.detach_Estudiante));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Nombre
+		{
+			get
+			{
+				return this._Nombre;
+			}
+			set
+			{
+				if ((this._Nombre != value))
+				{
+					this.OnNombreChanging(value);
+					this.SendPropertyChanging();
+					this._Nombre = value;
+					this.SendPropertyChanged("Nombre");
+					this.OnNombreChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Universidad_Estudiante", Storage="_Estudiante", ThisKey="Id", OtherKey="UniversidadId")]
+		public EntitySet<Estudiante> Estudiante
+		{
+			get
+			{
+				return this._Estudiante;
+			}
+			set
+			{
+				this._Estudiante.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Estudiante(Estudiante entity)
+		{
+			this.SendPropertyChanging();
+			entity.Universidad = this;
+		}
+		
+		private void detach_Estudiante(Estudiante entity)
+		{
+			this.SendPropertyChanging();
+			entity.Universidad = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Estudiante")]
+	public partial class Estudiante : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _Nombre;
+		
+		private string _Genero;
+		
+		private int _UniversidadId;
+		
+		private EntityRef<Universidad> _Universidad;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnNombreChanging(string value);
+    partial void OnNombreChanged();
+    partial void OnGeneroChanging(string value);
+    partial void OnGeneroChanged();
+    partial void OnUniversidadIdChanging(int value);
+    partial void OnUniversidadIdChanged();
+    #endregion
+		
+		public Estudiante()
+		{
+			this._Universidad = default(EntityRef<Universidad>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Nombre
+		{
+			get
+			{
+				return this._Nombre;
+			}
+			set
+			{
+				if ((this._Nombre != value))
+				{
+					this.OnNombreChanging(value);
+					this.SendPropertyChanging();
+					this._Nombre = value;
+					this.SendPropertyChanged("Nombre");
+					this.OnNombreChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Genero", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Genero
+		{
+			get
+			{
+				return this._Genero;
+			}
+			set
+			{
+				if ((this._Genero != value))
+				{
+					this.OnGeneroChanging(value);
+					this.SendPropertyChanging();
+					this._Genero = value;
+					this.SendPropertyChanged("Genero");
+					this.OnGeneroChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UniversidadId", DbType="Int NOT NULL")]
+		public int UniversidadId
+		{
+			get
+			{
+				return this._UniversidadId;
+			}
+			set
+			{
+				if ((this._UniversidadId != value))
+				{
+					if (this._Universidad.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnUniversidadIdChanging(value);
+					this.SendPropertyChanging();
+					this._UniversidadId = value;
+					this.SendPropertyChanged("UniversidadId");
+					this.OnUniversidadIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Universidad_Estudiante", Storage="_Universidad", ThisKey="UniversidadId", OtherKey="Id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public Universidad Universidad
+		{
+			get
+			{
+				return this._Universidad.Entity;
+			}
+			set
+			{
+				Universidad previousValue = this._Universidad.Entity;
+				if (((previousValue != value) 
+							|| (this._Universidad.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Universidad.Entity = null;
+						previousValue.Estudiante.Remove(this);
+					}
+					this._Universidad.Entity = value;
+					if ((value != null))
+					{
+						value.Estudiante.Add(this);
+						this._UniversidadId = value.Id;
+					}
+					else
+					{
+						this._UniversidadId = default(int);
+					}
+					this.SendPropertyChanged("Universidad");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }
