@@ -36,6 +36,12 @@ namespace LinqConSql
     partial void InsertEstudiante(Estudiante instance);
     partial void UpdateEstudiante(Estudiante instance);
     partial void DeleteEstudiante(Estudiante instance);
+    partial void InsertMateria(Materia instance);
+    partial void UpdateMateria(Materia instance);
+    partial void DeleteMateria(Materia instance);
+    partial void InsertEstudianteMateria(EstudianteMateria instance);
+    partial void UpdateEstudianteMateria(EstudianteMateria instance);
+    partial void DeleteEstudianteMateria(EstudianteMateria instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
@@ -81,6 +87,22 @@ namespace LinqConSql
 			get
 			{
 				return this.GetTable<Estudiante>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Materia> Materia
+		{
+			get
+			{
+				return this.GetTable<Materia>();
+			}
+		}
+		
+		public System.Data.Linq.Table<EstudianteMateria> EstudianteMateria
+		{
+			get
+			{
+				return this.GetTable<EstudianteMateria>();
 			}
 		}
 	}
@@ -213,6 +235,8 @@ namespace LinqConSql
 		
 		private int _UniversidadId;
 		
+		private EntitySet<EstudianteMateria> _EstudianteMateria;
+		
 		private EntityRef<Universidad> _Universidad;
 		
     #region Definiciones de métodos de extensibilidad
@@ -231,6 +255,7 @@ namespace LinqConSql
 		
 		public Estudiante()
 		{
+			this._EstudianteMateria = new EntitySet<EstudianteMateria>(new Action<EstudianteMateria>(this.attach_EstudianteMateria), new Action<EstudianteMateria>(this.detach_EstudianteMateria));
 			this._Universidad = default(EntityRef<Universidad>);
 			OnCreated();
 		}
@@ -319,6 +344,19 @@ namespace LinqConSql
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Estudiante_EstudianteMateria", Storage="_EstudianteMateria", ThisKey="Id", OtherKey="EstudianteID")]
+		public EntitySet<EstudianteMateria> EstudianteMateria
+		{
+			get
+			{
+				return this._EstudianteMateria;
+			}
+			set
+			{
+				this._EstudianteMateria.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Universidad_Estudiante", Storage="_Universidad", ThisKey="UniversidadId", OtherKey="Id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
 		public Universidad Universidad
 		{
@@ -349,6 +387,324 @@ namespace LinqConSql
 						this._UniversidadId = default(int);
 					}
 					this.SendPropertyChanged("Universidad");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_EstudianteMateria(EstudianteMateria entity)
+		{
+			this.SendPropertyChanging();
+			entity.Estudiante = this;
+		}
+		
+		private void detach_EstudianteMateria(EstudianteMateria entity)
+		{
+			this.SendPropertyChanging();
+			entity.Estudiante = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Materia")]
+	public partial class Materia : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _Nombre;
+		
+		private EntitySet<EstudianteMateria> _EstudianteMateria;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnNombreChanging(string value);
+    partial void OnNombreChanged();
+    #endregion
+		
+		public Materia()
+		{
+			this._EstudianteMateria = new EntitySet<EstudianteMateria>(new Action<EstudianteMateria>(this.attach_EstudianteMateria), new Action<EstudianteMateria>(this.detach_EstudianteMateria));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Nombre
+		{
+			get
+			{
+				return this._Nombre;
+			}
+			set
+			{
+				if ((this._Nombre != value))
+				{
+					this.OnNombreChanging(value);
+					this.SendPropertyChanging();
+					this._Nombre = value;
+					this.SendPropertyChanged("Nombre");
+					this.OnNombreChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Materia_EstudianteMateria", Storage="_EstudianteMateria", ThisKey="Id", OtherKey="MateriaId")]
+		public EntitySet<EstudianteMateria> EstudianteMateria
+		{
+			get
+			{
+				return this._EstudianteMateria;
+			}
+			set
+			{
+				this._EstudianteMateria.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_EstudianteMateria(EstudianteMateria entity)
+		{
+			this.SendPropertyChanging();
+			entity.Materia = this;
+		}
+		
+		private void detach_EstudianteMateria(EstudianteMateria entity)
+		{
+			this.SendPropertyChanging();
+			entity.Materia = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.EstudianteMateria")]
+	public partial class EstudianteMateria : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private int _EstudianteID;
+		
+		private int _MateriaId;
+		
+		private EntityRef<Estudiante> _Estudiante;
+		
+		private EntityRef<Materia> _Materia;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnEstudianteIDChanging(int value);
+    partial void OnEstudianteIDChanged();
+    partial void OnMateriaIdChanging(int value);
+    partial void OnMateriaIdChanged();
+    #endregion
+		
+		public EstudianteMateria()
+		{
+			this._Estudiante = default(EntityRef<Estudiante>);
+			this._Materia = default(EntityRef<Materia>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EstudianteID", DbType="Int NOT NULL")]
+		public int EstudianteID
+		{
+			get
+			{
+				return this._EstudianteID;
+			}
+			set
+			{
+				if ((this._EstudianteID != value))
+				{
+					if (this._Estudiante.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnEstudianteIDChanging(value);
+					this.SendPropertyChanging();
+					this._EstudianteID = value;
+					this.SendPropertyChanged("EstudianteID");
+					this.OnEstudianteIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MateriaId", DbType="Int NOT NULL")]
+		public int MateriaId
+		{
+			get
+			{
+				return this._MateriaId;
+			}
+			set
+			{
+				if ((this._MateriaId != value))
+				{
+					if (this._Materia.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMateriaIdChanging(value);
+					this.SendPropertyChanging();
+					this._MateriaId = value;
+					this.SendPropertyChanged("MateriaId");
+					this.OnMateriaIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Estudiante_EstudianteMateria", Storage="_Estudiante", ThisKey="EstudianteID", OtherKey="Id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public Estudiante Estudiante
+		{
+			get
+			{
+				return this._Estudiante.Entity;
+			}
+			set
+			{
+				Estudiante previousValue = this._Estudiante.Entity;
+				if (((previousValue != value) 
+							|| (this._Estudiante.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Estudiante.Entity = null;
+						previousValue.EstudianteMateria.Remove(this);
+					}
+					this._Estudiante.Entity = value;
+					if ((value != null))
+					{
+						value.EstudianteMateria.Add(this);
+						this._EstudianteID = value.Id;
+					}
+					else
+					{
+						this._EstudianteID = default(int);
+					}
+					this.SendPropertyChanged("Estudiante");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Materia_EstudianteMateria", Storage="_Materia", ThisKey="MateriaId", OtherKey="Id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public Materia Materia
+		{
+			get
+			{
+				return this._Materia.Entity;
+			}
+			set
+			{
+				Materia previousValue = this._Materia.Entity;
+				if (((previousValue != value) 
+							|| (this._Materia.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Materia.Entity = null;
+						previousValue.EstudianteMateria.Remove(this);
+					}
+					this._Materia.Entity = value;
+					if ((value != null))
+					{
+						value.EstudianteMateria.Add(this);
+						this._MateriaId = value.Id;
+					}
+					else
+					{
+						this._MateriaId = default(int);
+					}
+					this.SendPropertyChanged("Materia");
 				}
 			}
 		}

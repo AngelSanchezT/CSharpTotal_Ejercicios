@@ -13,7 +13,24 @@
       <Column Name="Nombre" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Genero" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="UniversidadId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Estudiante_EstudianteMateria" Member="EstudianteMateria" ThisKey="Id" OtherKey="EstudianteID" Type="EstudianteMateria" />
       <Association Name="Universidad_Estudiante" Member="Universidad" ThisKey="UniversidadId" OtherKey="Id" Type="Universidad" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Materia" Member="Materia">
+    <Type Name="Materia">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Materia_EstudianteMateria" Member="EstudianteMateria" ThisKey="Id" OtherKey="MateriaId" Type="EstudianteMateria" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EstudianteMateria" Member="EstudianteMateria">
+    <Type Name="EstudianteMateria">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EstudianteID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MateriaId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Estudiante_EstudianteMateria" Member="Estudiante" ThisKey="EstudianteID" OtherKey="Id" Type="Estudiante" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Materia_EstudianteMateria" Member="Materia" ThisKey="MateriaId" OtherKey="Id" Type="Materia" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
 </Database>

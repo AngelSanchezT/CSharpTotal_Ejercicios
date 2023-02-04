@@ -32,7 +32,11 @@ namespace LinqConSql
             dataContext = new DataClasses1DataContext(connectionString);
 
             //AgregarUniversidades();
-            AgregarEstudiantes();
+            //AgregarEstudiantes();
+            //AgregarMaterias();
+            //AgregarAsociocionesEstudiantesMaterias();
+            //ObtenerUniversidadDeMateo();
+            ObtenerMateriasDeMateo();
 
         }
 
@@ -72,5 +76,60 @@ namespace LinqConSql
             DataGridPrincipal.ItemsSource = dataContext.Estudiante;
         }
 
+        public void AgregarMaterias()
+        {
+            dataContext.Materia.InsertOnSubmit(new Materia { Nombre = "Matemática" });
+            dataContext.Materia.InsertOnSubmit(new Materia { Nombre = "Física" });
+
+            dataContext.SubmitChanges();
+
+            DataGridPrincipal.ItemsSource = dataContext.Materia;
+        }
+
+        public void AgregarAsociocionesEstudiantesMaterias()
+        {
+            Estudiante Carla = dataContext.Estudiante.First(es => es.Nombre.Equals("Carla"));
+            Estudiante Mateo = dataContext.Estudiante.First(es => es.Nombre.Equals("Mateo"));
+            Estudiante Laura = dataContext.Estudiante.First(es => es.Nombre.Equals("Laura"));
+            Estudiante Juan = dataContext.Estudiante.First(es => es.Nombre.Equals("Juan"));
+
+            Materia Matematica = dataContext.Materia.First(ma => ma.Nombre.Equals("Matemática"));
+            Materia Fisica = dataContext.Materia.First(ma => ma.Nombre.Equals("Física"));
+
+            dataContext.EstudianteMateria.InsertOnSubmit(new EstudianteMateria { Estudiante = Carla, Materia = Matematica });
+            dataContext.EstudianteMateria.InsertOnSubmit(new EstudianteMateria { Estudiante = Mateo, Materia = Matematica });
+            EstudianteMateria emMateo = new EstudianteMateria();
+            emMateo.Estudiante = Mateo;
+            emMateo.MateriaId = Fisica.Id;
+            dataContext.EstudianteMateria.InsertOnSubmit(new EstudianteMateria { Estudiante = Laura, Materia = Fisica });
+
+            dataContext.EstudianteMateria.InsertOnSubmit(emMateo);
+
+            dataContext.SubmitChanges();
+
+            DataGridPrincipal.ItemsSource = dataContext.EstudianteMateria;
+
+
+        }
+
+        public void ObtenerUniversidadDeMateo()
+        {
+            Estudiante mateo = dataContext.Estudiante.First(es => es.Nombre.Equals("Mateo"));
+            Universidad mateoUni = mateo.Universidad;
+
+            List<Universidad> universidades = new List<Universidad>();
+            universidades.Add(mateoUni);
+
+            DataGridPrincipal.ItemsSource = universidades;
+        }
+
+        public void ObtenerMateriasDeMateo()
+        {
+            Estudiante mateo = dataContext.Estudiante.First(es => es.Nombre.Equals("Mateo"));
+
+            var materiasMateo = from em in mateo.EstudianteMateria select em.Materia;
+
+            DataGridPrincipal.ItemsSource = materiasMateo;
+        }
     }
 }
